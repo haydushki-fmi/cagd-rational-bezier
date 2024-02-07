@@ -17,10 +17,10 @@
    <widget class="Canvas" name="widget_Canvas" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
       <width>991</width>
-      <height>631</height>
+      <height>751</height>
      </rect>
     </property>
     <property name="cursor">
@@ -30,7 +30,10 @@
      <bool>true</bool>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid red; background-color: white;</string>
     </property>
    </widget>
   </widget>
@@ -46,12 +49,35 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dockWidget_Points">
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>35</height>
+    </size>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents"/>
+   <widget class="QWidget" name="dockWidgetContents">
+    <widget class="PointListView" name="pointsWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>201</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QDockWidget" name="dockWidget_Settings">
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>35</height>
+    </size>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -64,6 +90,11 @@
    <extends>QWidget</extends>
    <header>Canvas.hpp</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PointListView</class>
+   <extends>QListWidget</extends>
+   <header>./views/PointListView.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>
