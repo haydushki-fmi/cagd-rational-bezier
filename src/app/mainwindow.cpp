@@ -3,18 +3,17 @@
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
+        : QMainWindow(parent),
+          ui(std::make_shared<Ui::MainWindow>()),
+          pointModel(std::make_shared<PointModel>()) {
     ui->setupUi(this);
+
+    ui->widget_Canvas->setPointModel(this->pointModel);
+    ui->pointsWidget->setModel(this->pointModel.get());
+
+    this->setConnections();
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-    std::cout << "Hi\n";
+void MainWindow::setConnections() {
+    connect(ui->widget_Canvas, &Canvas::pointAdded, this->pointModel.get(), &PointModel::addPoint);
 }
