@@ -22,3 +22,15 @@ QPointF PointModel::toQPointF(const Point &p) {
 const std::vector<Point> &PointModel::getPoints() const {
     return this->points;
 }
+
+void PointModel::clearPoints() {
+    beginResetModel();
+    this->points.clear();
+    endResetModel();
+}
+
+void PointModel::addPoint(Point p) {
+    beginInsertRows(QModelIndex(), this->points.size(), this->points.size());
+    this->points.push_back(p);
+    endInsertRows();
+}

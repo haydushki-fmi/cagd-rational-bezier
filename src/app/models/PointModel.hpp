@@ -10,20 +10,23 @@ using Point = CurveLib::RationalBezierPoint;
 
 class PointModel : public QAbstractListModel {
 public:
-    explicit PointModel(QObject *parent);
+    explicit PointModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex &parent) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
 
-    QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+
+    [[nodiscard]] const std::vector<Point> &getPoints() const;
+
+    void addPoint(Point p);
+
+    void clearPoints();
 
 private:
     static QPointF toQPointF(const Point &);
 
 private:
     std::vector<Point> points;
-public:
-    const std::vector<Point> &getPoints() const;
-
 };
 
 
