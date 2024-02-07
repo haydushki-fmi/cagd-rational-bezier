@@ -7,6 +7,8 @@ qt_add_executable(app
         Canvas.cpp
         models/PointModel.hpp
         models/PointModel.cpp
+        views/PointListView.hpp
+        views/PointListView.cpp
 )
 
 target_link_libraries(
