@@ -24,3 +24,4 @@ qt_standard_project_setup()
 
 include_directories("src")
 add_subdirectory(src/app)
+add_subdirectory(src/curve_lib)
