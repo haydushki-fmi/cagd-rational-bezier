@@ -10,6 +10,10 @@ namespace CurveLib {
     public:
         RationalBezierPoint(double x, double y, double weight);
 
+        bool operator==(const RationalBezierPoint &rhs) const;
+
+        bool operator!=(const RationalBezierPoint &rhs) const;
+
         [[nodiscard]] double getX() const;
 
         [[nodiscard]] double getY() const;
