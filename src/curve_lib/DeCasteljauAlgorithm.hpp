@@ -24,11 +24,12 @@ namespace CurveLib {
         generateCurvePoints(const std::vector<RationalBezierPoint> &points, double step);
 
     public:
+        // TODO: Maybe avoid copying vector in these
         // TODO: Add docs
         static RationalBezierPoint calculatePoint(const std::vector<RationalBezierPoint> &points, double t);
 
         // TODO: Add docs
-        static vector<Point> algorithmStep(const std::vector<RationalBezierPoint> &points, double t);
+        static vector <Point> algorithmStep(const std::vector<RationalBezierPoint> &points, double t);
     };
 
 } // CurveLib
