@@ -1,6 +1,13 @@
 #include "Canvas.hpp"
 
 #include <utility>
+#include <QInputDialog>
+
+const double MIN_WEIGHT = 0;
+const double MAX_WEIGHT = 100;
+const double DEFAULT_WEIGHT = 1;
+const double WEIGHT_STEP = 0.1;
+const int WEIGHT_PRECISION = 2;
 
 Canvas::Canvas(QWidget *parent) : QWidget(parent) {
     setMouseTracking(true);
@@ -21,7 +28,13 @@ void Canvas::clear() {
 
 void Canvas::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::MouseButton::LeftButton) {
-        emit pointAdded(Point(event->pos().x(), event->pos().y(), 1));
+        bool ok;
+        double w = QInputDialog::getDouble(nullptr, tr("Тегло"), tr("Въведете тегло на точката:"), DEFAULT_WEIGHT,
+                                           MIN_WEIGHT, MAX_WEIGHT, WEIGHT_PRECISION, &ok,
+                                           Qt::WindowFlags(), WEIGHT_STEP);
+        if (ok) {
+            emit pointAdded(Point(event->pos().x(), event->pos().y(), w));
+        }
     }
     QWidget::mousePressEvent(event);
 }

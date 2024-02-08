@@ -9,8 +9,8 @@ QVariant PointModel::data(const QModelIndex &index, int role) const {
     if (!index.isValid() || role != Qt::DisplayRole)
         return {};
 
-    const QPointF p = toQPointF(points.at(index.row()));
-    return tr("%1: (%2, %3)").arg(index.row()).arg(p.x()).arg(p.y());
+    const auto p = points.at(index.row());
+    return tr("%1: (%2, %3, %4)").arg(index.row()).arg(p.getX()).arg(p.getY()).arg(p.getWeight());
 }
 
 PointModel::PointModel(QObject *parent) : QAbstractListModel(parent) {}
