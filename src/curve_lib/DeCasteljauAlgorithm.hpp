@@ -4,6 +4,9 @@
 #include <vector>
 #include "RationalBezierPoint.hpp"
 
+using Point = CurveLib::RationalBezierPoint;
+using std::vector;
+
 namespace CurveLib {
 
     /**
@@ -18,7 +21,14 @@ namespace CurveLib {
          * @return
          */
         static std::vector<RationalBezierPoint>
-        generateCurvePoints(std::vector<RationalBezierPoint> points, double step);
+        generateCurvePoints(const std::vector<RationalBezierPoint> &points, double step);
+
+    public:
+        // TODO: Add docs
+        static RationalBezierPoint calculatePoint(const std::vector<RationalBezierPoint> &points, double t);
+
+        // TODO: Add docs
+        static vector<Point> algorithmStep(const std::vector<RationalBezierPoint> &points, double t);
     };
 
 } // CurveLib
