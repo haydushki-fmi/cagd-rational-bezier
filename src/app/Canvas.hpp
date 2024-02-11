@@ -45,6 +45,8 @@ private:
     std::vector<Point> calculatedBezierPoints;
     bool bezierCurveNeedsRecalculation;
 
+    qreal step;
+
     std::shared_ptr<PointModel> pointModel;
     qreal pointRadius;
 

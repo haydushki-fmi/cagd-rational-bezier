@@ -22,7 +22,7 @@ public:
 
     void clearPoints();
 
-private:
+public:
     static QPointF toQPointF(const Point &);
 
 private:
