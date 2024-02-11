@@ -29,6 +29,9 @@ namespace CurveLib {
     std::vector<RationalBezierPoint>
     DeCasteljauAlgorithm::generateCurvePoints(const vector<RationalBezierPoint> &points, double step) {
         vector<Point> result;
+        if (points.size() < 2) {
+            return points;
+        }
         for (double t = 0; t <= 1; t += step) {
             result.emplace_back(DeCasteljauAlgorithm::calculatePoint(points, t));
         }
