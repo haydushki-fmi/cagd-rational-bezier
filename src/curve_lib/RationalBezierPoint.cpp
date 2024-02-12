@@ -24,4 +24,16 @@ namespace CurveLib {
     bool RationalBezierPoint::operator!=(const RationalBezierPoint &rhs) const {
         return !(rhs == *this);
     }
+
+    void RationalBezierPoint::setX(double x) {
+        RationalBezierPoint::x = x;
+    }
+
+    void RationalBezierPoint::setY(double y) {
+        RationalBezierPoint::y = y;
+    }
+
+    void RationalBezierPoint::setWeight(double weight) {
+        RationalBezierPoint::weight = weight;
+    }
 } // CurveLib

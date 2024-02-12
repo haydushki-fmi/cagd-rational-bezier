@@ -20,6 +20,12 @@ namespace CurveLib {
 
         [[nodiscard]] double getWeight() const;
 
+        void setX(double x);
+
+        void setY(double y);
+
+        void setWeight(double weight);
+
     private:
         double x;
         double y;
