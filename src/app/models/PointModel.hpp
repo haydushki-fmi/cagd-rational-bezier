@@ -22,6 +22,8 @@ public:
 
     void clearPoints();
 
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+
 public:
     static QPointF toQPointF(const Point &);
 

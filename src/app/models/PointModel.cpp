@@ -34,3 +34,17 @@ void PointModel::addPoint(Point p) {
     this->points.push_back(p);
     endInsertRows();
 }
+
+bool PointModel::removeRows(int row, int count, const QModelIndex &parent) {
+    if (this->points.size() == 0) {
+        return true;
+    }
+    beginRemoveRows(parent, row, row + (count - 1));
+    for (int i = 0; i < count; ++i) {
+        this->points.erase(this->points.begin() + row);
+    }
+    endRemoveRows();
+
+    return true;
+
+}
