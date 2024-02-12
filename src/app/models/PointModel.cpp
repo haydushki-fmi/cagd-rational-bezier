@@ -6,11 +6,18 @@ int PointModel::rowCount(const QModelIndex &parent) const {
 }
 
 QVariant PointModel::data(const QModelIndex &index, int role) const {
-    if (!index.isValid() || role != Qt::DisplayRole)
+    if (!index.isValid())
         return {};
 
     const auto p = points.at(index.row());
-    return tr("%1: (%2, %3, %4)").arg(index.row()).arg(p.getX()).arg(p.getY()).arg(p.getWeight());
+    switch (role) {
+        case Qt::DisplayRole:
+            return tr("%1: (%2, %3, %4)").arg(index.row()).arg(p.getX()).arg(p.getY()).arg(p.getWeight());
+        case Qt::EditRole:
+            return p.getWeight();
+        default:
+            return {};
+    }
 }
 
 PointModel::PointModel(QObject *parent) : QAbstractListModel(parent) {}
@@ -47,4 +54,14 @@ bool PointModel::removeRows(int row, int count, const QModelIndex &parent) {
 
     return true;
 
+}
+
+bool PointModel::setData(const QModelIndex &index, const QVariant &value, int role) {
+    if (!index.isValid()) {
+        return false;
+    }
+    this->points.at(index.row()).setWeight(value.toDouble());
+    emit dataChanged(index, index, {role});
+
+    return true;
 }

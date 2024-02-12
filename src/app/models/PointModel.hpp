@@ -24,6 +24,8 @@ public:
 
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+
 public:
     static QPointF toQPointF(const Point &);
 
