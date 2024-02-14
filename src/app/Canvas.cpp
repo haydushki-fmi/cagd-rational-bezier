@@ -31,7 +31,8 @@ void Canvas::setPointModel(std::shared_ptr<PointModel> model) {
 }
 
 void Canvas::clear() {
-    // TODO: Implement
+    this->pointModel->clearPoints();
+    update();
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event) {

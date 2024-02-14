@@ -16,4 +16,5 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::setConnections() {
     connect(ui->widget_Canvas, &Canvas::pointAdded, this->pointModel.get(), &PointModel::addPoint);
+    connect(ui->pushButtonClear, &QPushButton::clicked, ui->widget_Canvas, &Canvas::clear);
 }
