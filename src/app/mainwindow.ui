@@ -48,36 +48,19 @@
    <property name="minimumSize">
     <size>
      <width>200</width>
-     <height>35</height>
+     <height>107</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <widget class="PointListView" name="pointsWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>10</y>
-       <width>201</width>
-       <height>331</height>
-      </rect>
-     </property>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="PointListView" name="pointsWidget"/>
+     </item>
+    </layout>
    </widget>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget_Settings">
-   <property name="minimumSize">
-    <size>
-     <width>200</width>
-     <height>35</height>
-    </size>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_"/>
   </widget>
  </widget>
  <customwidgets>
