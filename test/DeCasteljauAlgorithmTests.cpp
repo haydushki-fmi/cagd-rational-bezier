@@ -29,7 +29,7 @@ TEST_CASE("Algorithm step works as expected") {
         auto result = Algorithm::algorithmStep(points, t);
 
         REQUIRE(result.size() == 1);
-        REQUIRE(result[0] == Point(0, (2.0 / 3), 1));
+        REQUIRE(result[0] == Point(0, (2.0 / 3), 1.5));
     }
 }
 
@@ -53,7 +53,7 @@ TEST_CASE("Algorithm reduces points to a single point for a given t") {
 
         auto result = Algorithm::calculatePoint(points, 0.5);
 
-        REQUIRE(result == Point(0.5, 2.0 / 3, 1));
+        REQUIRE(result == Point(0.5, 2.0 / 3, 1.5));
     }
 }
 
@@ -67,6 +67,6 @@ TEST_CASE("Algorithm calculates curve points for a desired step") {
 
     REQUIRE(result.size() == 5);
     REQUIRE(result[0] == points[0]);
-    REQUIRE(result[2] == Point(0.5, 2.0 / 3, 1));
+    REQUIRE(result[2] == Point(0.5, 2.0 / 3, 1.5));
     REQUIRE(result[4] == points[2]);
 }
